@@ -1,0 +1,99 @@
+﻿@model IDGS902_Tema1.Models.Diccionario
+
+@{
+    ViewBag.Title = "Registrar en Diccionario";
+}
+
+<div class="row">
+    <div class="col-12 text-center">
+        <h2>Registrar en Diccionario</h2>
+    </div>
+
+    <form action="/" method="post"></form>
+
+    <div class="col-6 col-md-6">
+        <div class="card">
+            <div class="card-body d-flex justify-content-center align-items-center">
+                @using (Html.BeginForm())
+                {
+                    <div class="form-group text-center">
+                        @Html.LabelFor(model => model.Espanol, htmlAttributes: new { @class = "col-form-label" })
+
+                        <div>
+                            @Html.EditorFor(model => model.Espanol, new { htmlAttributes = new { @class = "form-control", @PlaceHolder = "Ingrese una palabra", required = "required" } })
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group text-center">
+                        @Html.LabelFor(model => model.Ingles, htmlAttributes: new { @class = "col-form-label" })
+
+                        <div>
+                            @Html.EditorFor(model => model.Ingles, new { htmlAttributes = new { @class = "form-control", @PlaceHolder = "Ingrese una palabra", required = "required" } })
+                        </div>
+                    </div>
+
+                    <br />
+
+                    <div>
+                        <div class="form-group col-6">
+                            <div class="text-center">
+                                <input type="submit" name="name" value="Registrar" class="btn btn-outline-info" />
+                            </div>
+                        </div>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6 col-md-6">
+        <div>
+            <h5>Contenido del diccionario</h5>
+
+            <div class="form-group text-right">
+                <div>
+                    @Html.ActionLink("Buscar", "BuscarDiccionario", null, new { @class = "btn btn-outline-warning" })
+                </div>
+            </div>
+
+        </div>
+
+        <br />
+        @if (ViewBag.Datos == null || ViewBag.Datos.Length == 0)
+        {
+            <div class="alert alert-danger" role="alert">
+                No se encontraron resultados
+            </div>
+        }
+        else
+        {
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Español</th>
+                        <th>Inglés</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.Datos)
+                    {
+                        <tr>
+                            @foreach (string item2 in item.Split('='))
+                            {
+                                <td>
+                                    @item2
+                                </td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+
+
+
+    </div>
+
+
+</div>

@@ -1,0 +1,31 @@
+﻿
+<form action="/" method="post">
+    <div class="form-group">
+        <label for="numInputs">Cantidad de Inputs</label>
+        <input type="number" name="numInputs" min="0" />
+        <br />
+        <input type="submit" class="btn btn-outline-success" value="Crear" style="align-items:center;" />
+    </div>
+</form>
+
+
+
+
+@if (ViewBag.Inputs != null)
+{
+    <form action="@Url.Action("CalculosCD")" method="post">
+        @foreach (var input in ViewBag.Inputs)
+        {
+            @Html.Raw(input)
+        }
+        <br />
+
+        <input type="submit" class="btn btn-outline-info" value="Calcular" style="align-items:center;" />
+    </form>
+}
+
+
+
+
+
+

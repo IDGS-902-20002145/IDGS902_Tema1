@@ -1,0 +1,89 @@
+﻿@model IDGS902_Tema1.Models.Triangulos
+
+@{
+    ViewBag.Title = "VerificarTriangulo";
+}
+
+<h2>VerificarTriangulo</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-md-4">
+            <h4>Punto 1</h4>
+            <div class="form-group">
+                @Html.LabelFor(model => model.X1)
+                @Html.TextBoxFor(model => model.X1, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Y1)
+                @Html.TextBoxFor(model => model.Y1, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <h4>Punto 2</h4>
+            <div class="form-group">
+                @Html.LabelFor(model => model.X2)
+                @Html.TextBoxFor(model => model.X2, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Y2)
+                @Html.TextBoxFor(model => model.Y2, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <h4>Punto 3</h4>
+            <div class="form-group">
+                @Html.LabelFor(model => model.X3)
+                @Html.TextBoxFor(model => model.X3, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Y3)
+                @Html.TextBoxFor(model => model.Y3, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <br />
+
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Verificar Triángulo" />
+    </div>
+}
+
+@if (Model != null)
+{
+    <h4>Resultado:</h4>
+
+    if (Model.TipoTriangulo == "Los puntos indicados no forman un triángulo")
+    {
+        <div class="alert alert-danger" role="alert">
+            Los puntos indicados no forman un triángulo.
+        </div>
+    }
+    else
+    {
+        <b><h5>Distancias:</h5></b>
+        <p><b>Distancia entre Punto 1 y Punto 2:</b> @Model.punto1</p>
+        <p><b>Distancia entre Punto 2 y Punto 3:</b> @Model.punto2</p>
+        <p><b>Distancia entre Punto 3 y Punto 1:</b> @Model.punto3</p>
+        <br />
+        <p><b>Tipo de Triángulo:</b> @Model.TipoTriangulo</p>
+    }
+
+
+    if (Model.Area != 0)
+    {
+        <p><b>Área del Triángulo:</b> @Model.Area</p>
+    }
+    else
+    {
+        <p>@ViewBag.Area</p>
+    }
+
+}
+else
+{
+
+}

@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Index4";
+}
+
+<h2>Index4</h2>
+<h3>Datos en ViewBag</h3>
+<h2>
+    @ViewBag.Grupos
+</h2>
+<h2>
+    @ViewBag.Numero
+</h2>
+<h3>
+    ---------- Datos en ViewData ----------
+</h3>
+@ViewData["Nombre"]
+<br />
+
+@Html.ActionLink("Vista Nueva", "Index", "Home", null, new {miAtributo="Valor1", @class="btn btn-danger"})

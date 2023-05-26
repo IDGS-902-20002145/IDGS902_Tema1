@@ -1,0 +1,26 @@
+﻿@model IDGS902_Tema1.Models.Distancia2p
+
+@{
+    ViewBag.Title = "Distancia2Puntos";
+}
+
+<h2>Distancia2Puntos</h2>
+
+<form action="/" method="post">
+    <label for="x1">Coordenada x1:</label>
+    <input type="number" id="x1" name="x1"><br>
+
+    <label for="y1">Coordenada y1:</label>
+    <input type="number" id="y1" name="y1"><br>
+
+    <label for="x2">Coordenada x2:</label>
+    <input type="number" id="x2" name="x2"><br>
+
+    <label for="y2">Coordenada y2:</label>
+    <input type="number" id="y2" name="y2"><br>
+
+    <input type="submit" name="name" value="Calcular" />
+</form>
+<div class="col-lg-6">
+    <h1>La distancia es : @ViewBag.Res</h1>
+</div>

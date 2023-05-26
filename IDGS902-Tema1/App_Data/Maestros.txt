@@ -1,0 +1,4 @@
+Sergio,Alba,Arguello,28,sergio@gmail.com
+Adriana,Barron,Rico,20,adr@gmail.com
+Daniel,Ortega,Lizama,21,dl@gmail.com
+Yahir,Quiroz,Peres,20,dl@gmail.com
